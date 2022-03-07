@@ -40,8 +40,8 @@ def compute_c(v_list, weighted=True, w=None, normalized_w = False):
             return v
         return v / norm
 
-    n = v_list[0].shape[0]
-    v = np.dstack(v_list).reshape((len(v_list), n))  # size [sample_num][v_list]
+    n = v_list[0].shape[0]  # sample num
+    v = np.dstack(v_list).reshape((n, len(v_list)))  # size [sample_num][v_list]
 
     if weighted and normalized_w:
         w = normalize(w)

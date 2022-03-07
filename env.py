@@ -38,9 +38,9 @@ class toy_env:
         infl_t = np.zeros(shape)
         for alice in range(globals.N_AGENTS):
             for t in range(globals.EPS_LEN):
-                for bob in self.agents_rel[alice][t]:
+                for bob in self.agents_rel[t][alice]:
                     if bob != globals.N_AGENTS:
-                        infl_t[bob][t][alice] += 1
+                        infl_t[bob][alice][t] += 1
         return infl_t
 
     def _gen_rand_game(self, is_time_static):
