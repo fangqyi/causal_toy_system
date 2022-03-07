@@ -70,7 +70,7 @@ class toy_env:
         for src_id in range(len(infl)):
             src = infl[src_id]
             if src == globals.N_AGENTS:  # from env
-                r += random.randint(0, 2 ** div_len - 1) << (div_len * src_id)
+                r += int(random.randint(0, 2 ** div_len - 1)) << int(div_len * src_id)
             else:  # determined by agents
-                r += (actions[src] & (2 ** div_len - 1)) << (div_len * src_id)
+                r += int(actions[src]) & (int(2 ** div_len - 1) << int(div_len * src_id))
         return r
